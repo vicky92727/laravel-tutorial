@@ -27,3 +27,9 @@ Route::get('/search', 'UsersController@search')->middleware('checkuser');;
 Route::get('/filter', 'UsersController@filter')->middleware('checkuser');;
 Route::get('/redirect/{service}', 'LoginController@redirect');
 Route::get('/callback/{service}', 'LoginController@callback');
+Route::get('addmoney/stripe', 
+	array('as' => 'addmoney.paywithstripe','uses' => 'AddMoneyController@payWithStripe')
+);
+Route::post('addmoney/stripe', 
+	array('as' => 'addmoney.stripe','uses' => 'AddMoneyController@postPaymentWithStripe')
+);
